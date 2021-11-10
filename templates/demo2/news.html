@@ -1,0 +1,44 @@
+{{ define "demo2/news.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+</head>
+<body>
+    <h1>{{.title}}</h1>
+    <!--定义变量-->
+    {{ $a := .news }}
+    <!--输出变量-->
+    <h3>{{ $a }}</h3>
+
+    <!--条件判断语句-->
+    {{if lt .choice 0}} 小于 {{ else if eq .choice 0 }} 等于 {{ else }} 大于 {{ end }}
+
+    <ul>
+        <!--循环遍历-->
+        {{ range $key,$value := .array }}
+            <li>{{$key}},{{$value}}</li>
+        {{ end }}
+        <br/>
+        {{ range $key,$value := .newsList }}
+            <li>{{$value.Title}},{{$value.Content}}</li>
+        {{end}}
+        <br/>
+        <!--testSlice 为空的时候走 else-->
+        {{ range $key,$value := .testSlice }}
+            <li>{{$value.Title}},{{$value.Content}}</li>
+        {{else}}
+            <li>数组中没有数据</li>
+        {{end}}
+        <br/>
+        {{with .news}}
+            <li> {{.Title}} </li>
+            <li> {{.Content}} </li>
+        {{end}}
+    </ul>
+
+
+</body>
+</html>
+{{ end }}
