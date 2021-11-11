@@ -1,0 +1,19 @@
+{{ define "demo3/news.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+</head>
+<body>
+    <ul>
+        <!--预定义函数-->
+        <!--统计字节长度-->
+        {{len .title}}
+        <br/>
+        {{UnixToTime .time}}
+
+    </ul>
+</body>
+</html>
+{{ end }}
