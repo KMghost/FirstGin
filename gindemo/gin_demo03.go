@@ -32,6 +32,7 @@ func main() {
 	})
 
 	r.LoadHTMLGlob("templates/**/*") // 导入templates  **：代表所有文件夹，*: 代表所有文件
+	r.Static("/static", "./static")  // 引入static文件
 
 	r.GET("/news", func(c *gin.Context) {
 		a := &Acticle{
